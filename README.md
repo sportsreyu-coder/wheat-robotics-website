@@ -29,17 +29,23 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+## Content
+
+Real organizational details have been filled in from public sources
+(WHEAT's IRS filings, GuideStar/CauseIQ, and Team 41's own site/socials):
+EIN 26-3031711, mailing address (108 Stirling Rd, Warren, NJ 07059),
+2010 incorporation, 1997 team founding, board president, and Team 41's
+competition history, advisors, and sponsors.
+
 ## Content still needed
 
-This is a first draft with placeholder copy throughout (marked with
-`<em>(placeholder...)</em>` in the HTML and `[bracketed]` fields). Before
-launch, replace:
+A few things remain placeholders (marked `<em>(placeholder...)</em>` in
+the HTML) because they aren't publicly available or the real WHEAT
+website (wheatrobotics.org) has expired and is now a parked domain:
 
-- Real mission/vision statement and history in [about.html](about.html)
-- Actual board member names/roles
-- Real program names, schedules, and eligibility in [programs.html](programs.html)
-- Confirmed 501(c)(3) determination status, EIN, and donation-receipt language
-- Donation platform link (e.g. Zeffy, PayPal Giving Fund, Stripe) in [get-involved.html](get-involved.html)
-- Contact email, phone, mailing address, and social links (footer on every page, and [contact.html](contact.html))
+- A dedicated WHEAT contact email and phone number
+- Online donation platform link (e.g. Zeffy, PayPal Giving Fund, Stripe) in [get-involved.html](get-involved.html)
+- Full board roster beyond the current president (Bo Li, per public 990 filings)
+- Exact meeting days/times and sponsorship dollar tiers
 - Contact/volunteer form backend (currently placeholder — wire up a service like Formspree or Google Forms, see `data-placeholder-form` in [js/main.js](js/main.js))
-- Impact stats on the homepage (student counts, program counts, mentor counts)
+- Real photos (the homepage still has a placeholder photo slot)
