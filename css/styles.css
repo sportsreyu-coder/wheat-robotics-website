@@ -82,9 +82,9 @@ ul{margin:0 0 1em;padding-left:1.25em;color:var(--ink-secondary)}
 section{padding:96px 0}
 .section-alt{background:var(--surface);border-top:1px solid var(--rule)}
 .section-navy{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.section-head{margin:0 0 72px;max-width:70ch}
+.section-head{margin:0 0 128px;max-width:70ch}
 .section-head.center{text-align:left}
-.section-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;max-width:none;margin-bottom:0}
+.section-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;max-width:none}
 .section-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin:0}
 .section-prose{margin:0;max-width:52ch;font-size:1.02rem}
 
