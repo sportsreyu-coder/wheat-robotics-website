@@ -113,9 +113,12 @@ section{padding:96px 0}
 .program-card-body ul{font-size:.92rem;padding-left:1.1em}
 .section-navy .program-card,.section-navy .card{background:var(--surface-raised);border-color:var(--rule)}
 
-.values-grid,.people-grid{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.value-item{display:flex;gap:16px;padding:22px 0;border-top:1px solid var(--rule)}
-.value-badge{flex-shrink:0;width:36px;height:36px;border:1px solid var(--brass);color:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1.1rem}
+.people-grid{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.values-grid{display:grid;gap:40px;grid-template-columns:repeat(3,1fr)}
+.value-item{padding-top:24px;border-top:1px solid var(--rule)}
+.value-icon{width:28px;height:28px;color:var(--brass);margin-bottom:16px}
+.value-item h3{margin-bottom:.3em}
+.value-item p{margin:0}
 .person-card{padding:0 0 24px;overflow:hidden}
 .person-card>*:not(.person-avatar){margin-left:24px;margin-right:24px}
 .person-avatar{aspect-ratio:1/1;margin:0 0 18px;background:repeating-linear-gradient(135deg,var(--surface) 0 12px,var(--rule) 12px 24px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-family:var(--font-mono);font-size:1.1rem}
@@ -171,7 +174,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--brass);outline-o
 .social-links a{width:32px;height:32px;border:1px solid var(--rule-muted);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;color:var(--ink-secondary);text-decoration:none}
 .social-links a:hover{background:var(--brass);border-color:var(--brass);color:var(--ink-on-brass)}
 
-@media(max-width:900px){.cta-split,.section-split,.footer-grid{grid-template-columns:1fr;gap:36px}.cta-aside{border-left:none;padding-left:0;border-top:1px solid var(--rule-strong);padding-top:28px}}
+@media(max-width:900px){.cta-split,.section-split,.footer-grid,.values-grid{grid-template-columns:1fr;gap:36px}.cta-aside{border-left:none;padding-left:0;border-top:1px solid var(--rule-strong);padding-top:28px}}
 @media(max-width:720px){
   .container,.nav-wrap{padding-left:24px;padding-right:24px}
   .nav-toggle{display:inline-block}
