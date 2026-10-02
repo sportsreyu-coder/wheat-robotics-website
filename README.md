@@ -45,7 +45,7 @@ website (wheatrobotics.org) has expired and is now a parked domain:
 
 - A dedicated WHEAT contact email and phone number
 - Online donation platform link (e.g. Zeffy, PayPal Giving Fund, Stripe) in [get-involved.html](get-involved.html)
-- Full board roster beyond the current president (Bo Li, per public 990 filings)
+- Full board roster beyond the current president (Anuj Shah) and Bo Li (board member)
 - Exact meeting days/times and sponsorship dollar tiers
 - Contact/volunteer form backend (currently placeholder — wire up a service like Formspree or Google Forms, see `data-placeholder-form` in [js/main.js](js/main.js))
 - Real photos (the homepage still has a placeholder photo slot)
