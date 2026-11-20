@@ -38,6 +38,56 @@ document.addEventListener("DOMContentLoaded", function () {
     sync(false);
   });
 
+  // Web3Forms: the contact form posts straight to Web3Forms, which emails
+  // the message to the inbox tied to the access key in the form. Only that
+  // public key lives in the page; no passwords or SMTP details.
+  var web3Forms = document.querySelectorAll("form[data-web3form]");
+  web3Forms.forEach(function (form) {
+    var button = form.querySelector('button[type="submit"]');
+    var status = form.querySelector(".form-status");
+    var buttonLabel = button ? button.textContent : "";
+
+    function showStatus(text, kind) {
+      if (!status) return;
+      status.textContent = text;
+      status.className = "form-status" + (kind ? " is-" + kind : "");
+      status.hidden = false;
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var data = new FormData(form);
+      var topic = data.get("topic");
+      var name = (data.get("name") || "").trim();
+      data.set("subject", "Website contact" + (topic ? " — " + topic : "") + (name ? " from " + name : ""));
+
+      if (button) { button.disabled = true; button.textContent = "Sending..."; }
+      showStatus("Sending...", "");
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data
+      })
+        .then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (json) {
+            if (!response.ok || !json.success) throw new Error(json.message || "Request failed");
+          });
+        })
+        .then(function () {
+          form.reset();
+          showStatus("Message sent! Thanks for reaching out — we'll get back to you soon.", "success");
+        })
+        .catch(function () {
+          showStatus("Sorry, your message couldn't be sent. Please try again in a moment, or email us at board@wheatrobotics.org.", "error");
+        })
+        .then(function () {
+          if (button) { button.disabled = false; button.textContent = buttonLabel; }
+        });
+    });
+  });
+
   // Mailto forms: no backend yet, so submitting opens the visitor's email
   // app with the form contents. The recipient comes from the form's
   // data-mailto, or from the selected <option>'s data-mailto if it has one

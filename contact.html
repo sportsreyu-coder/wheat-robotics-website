@@ -55,7 +55,13 @@
 
         <div>
           <h2>Contact form</h2>
-          <form data-mailto-form data-mailto="board@wheatrobotics.org" data-subject="Website contact" aria-describedby="contact-form-note">
+          <form data-web3form action="https://api.web3forms.com/submit" method="POST" aria-describedby="contact-form-status">
+            <!-- Web3Forms public access key: replace YOUR_ACCESS_KEY with the key from web3forms.com. It is safe to publish. -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Website contact">
+            <input type="hidden" name="from_name" value="WHEAT website">
+            <!-- Honeypot: real visitors never see or tick this; Web3Forms drops submissions that have it checked. -->
+            <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-row">
               <div>
                 <label for="c-name">Full name</label>
@@ -84,11 +90,7 @@
             <div class="button-row">
               <button class="btn btn-primary" type="submit">Send Message</button>
             </div>
-            <p id="contact-form-note" class="form-note form-submit-note" hidden>
-              Your email app should open with your message addressed to
-              <a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a>. If it doesn't, email us
-              there directly.
-            </p>
+            <p id="contact-form-status" class="form-status" role="status" aria-live="polite" hidden></p>
           </form>
         </div>
 
