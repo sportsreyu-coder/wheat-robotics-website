@@ -55,7 +55,7 @@
 
         <div>
           <h2>Contact form</h2>
-          <form data-placeholder-form aria-describedby="contact-form-note">
+          <form data-mailto-form data-mailto="board@wheatrobotics.org" data-subject="Website contact" aria-describedby="contact-form-note">
             <div class="form-row">
               <div>
                 <label for="c-name">Full name</label>
@@ -85,10 +85,9 @@
               <button class="btn btn-primary" type="submit">Send Message</button>
             </div>
             <p id="contact-form-note" class="form-note form-submit-note" hidden>
-              Thanks for reaching out! This form is a placeholder and
-              isn't connected to a backend yet — wire it up to a form
-              service (e.g. Formspree, Google Forms) or a mailto action
-              before launch.
+              Your email app should open with your message addressed to
+              <a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a>. If it doesn't, email us
+              there directly.
             </p>
           </form>
         </div>
@@ -100,8 +99,8 @@
               <svg class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
               <div>
                 <strong>Email</strong><br>
-                Use the contact form, or reach the team at
-                <a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a>.
+                <a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a><br>
+                Mentor applications: <a href="mailto:danwasserman@wheatrobotics.org">danwasserman@wheatrobotics.org</a>
               </div>
             </li>
             <li>
@@ -164,6 +163,7 @@
         <h4>Contact</h4>
         <ul>
           <li>108 Stirling Rd<br>Warren, NJ 07059</li>
+          <li><a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a></li>
           <li><a href="contact.html">Send us a message</a></li>
           <li>EIN: 26-3031711</li>
         </ul>

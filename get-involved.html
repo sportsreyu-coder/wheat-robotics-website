@@ -98,7 +98,7 @@
           and board members. Tell us how you'd like to help.
         </p>
       </div>
-      <form data-placeholder-form aria-describedby="volunteer-form-note">
+      <form data-mailto-form data-mailto="board@wheatrobotics.org" data-subject="Volunteer interest" aria-describedby="volunteer-form-note">
         <div class="form-row">
           <div>
             <label for="v-name">Full name</label>
@@ -112,7 +112,7 @@
         <div>
           <label for="v-interest">How would you like to help?</label>
           <select id="v-interest" name="interest" data-other-toggle="v-interest-other-wrap">
-            <option>Mentor / Coach a team</option>
+            <option data-mailto="danwasserman@wheatrobotics.org" data-subject="Mentor application">Mentor / Coach a team</option>
             <option>Help at events</option>
             <option>Join the Board</option>
             <option value="Other">Other</option>
@@ -130,9 +130,9 @@
           <button class="btn btn-primary" type="submit">Submit Interest Form</button>
         </div>
         <p id="volunteer-form-note" class="form-note form-submit-note" hidden>
-          Thanks! This form is a placeholder and isn't connected to a
-          backend yet — wire it up to a form service (e.g. Formspree,
-          Google Forms) or your email before launch.
+          Your email app should open with your details filled in. If it
+          doesn't, email <a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a> (mentor
+          applications: <a href="mailto:danwasserman@wheatrobotics.org">danwasserman@wheatrobotics.org</a>).
         </p>
       </form>
     </div>
@@ -199,6 +199,7 @@
         <h4>Contact</h4>
         <ul>
           <li>108 Stirling Rd<br>Warren, NJ 07059</li>
+          <li><a href="mailto:board@wheatrobotics.org">board@wheatrobotics.org</a></li>
           <li><a href="contact.html">Send us a message</a></li>
           <li>EIN: 26-3031711</li>
         </ul>

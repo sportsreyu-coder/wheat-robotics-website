@@ -38,16 +38,49 @@ document.addEventListener("DOMContentLoaded", function () {
     sync(false);
   });
 
-  // Placeholder form handling: prevent real submission until a backend/
-  // form service (e.g. Formspree, Google Forms) is wired up.
-  var placeholderForms = document.querySelectorAll("form[data-placeholder-form]");
-  placeholderForms.forEach(function (form) {
+  // Mailto forms: no backend yet, so submitting opens the visitor's email
+  // app with the form contents. The recipient comes from the form's
+  // data-mailto, or from the selected <option>'s data-mailto if it has one
+  // (e.g. mentor applications go to a different inbox).
+  var mailtoForms = document.querySelectorAll("form[data-mailto-form]");
+  mailtoForms.forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      var to = form.getAttribute("data-mailto");
+      var subject = form.getAttribute("data-subject") || "Website message";
+      var lines = [];
+
+      Array.prototype.forEach.call(form.elements, function (field) {
+        if (!field.name || field.type === "submit" || field.disabled) return;
+        var label = form.querySelector('label[for="' + field.id + '"]');
+        var name = label ? label.textContent.trim() : field.name;
+        var value = field.value.trim();
+        if (field.tagName === "SELECT") {
+          var opt = field.options[field.selectedIndex];
+          if (opt) {
+            if (opt.getAttribute("data-mailto")) to = opt.getAttribute("data-mailto");
+            var otherWrap = document.getElementById(field.getAttribute("data-other-toggle"));
+            var otherInput = otherWrap && otherWrap.querySelector("input, textarea");
+            var choice = opt.text;
+            if (field.value === "Other" && otherInput && otherInput.value.trim()) {
+              choice = "Other: " + otherInput.value.trim();
+            }
+            if (opt.getAttribute("data-subject")) subject = opt.getAttribute("data-subject");
+            else subject += " — " + choice;
+          }
+        }
+        if (value) lines.push(name + ": " + value);
+      });
+
+      var nameField = form.querySelector('[name="name"]');
+      if (nameField && nameField.value.trim()) subject += " from " + nameField.value.trim();
+
+      window.location.href = "mailto:" + to +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(lines.join("\n\n"));
+
       var note = form.querySelector(".form-submit-note");
-      if (note) {
-        note.hidden = false;
-      }
+      if (note) note.hidden = false;
     });
   });
 });

@@ -15,7 +15,7 @@ programs.html        Programs WHEAT supports
 get-involved.html    Donate, volunteer, sponsor
 contact.html         Contact form and details
 css/styles.css       Shared stylesheet
-js/main.js           Nav toggle, footer year, placeholder form handling
+js/main.js           Nav toggle, footer year, mailto form handling
 assets/favicon.svg   Site icon (also used as the inline logo mark)
 ```
 
@@ -43,9 +43,9 @@ A few things remain placeholders (marked `<em>(placeholder...)</em>` in
 the HTML) because they aren't publicly available or the real WHEAT
 website (wheatrobotics.org) has expired and is now a parked domain:
 
-- A dedicated WHEAT contact email and phone number
+- A WHEAT phone number
 - Online donation platform link (e.g. Zeffy, PayPal Giving Fund, Stripe) in [get-involved.html](get-involved.html)
 - Full board roster beyond the current president (Anuj Shah) and Bo Li (board member)
 - Exact meeting days/times and sponsorship dollar tiers
-- Contact/volunteer form backend (currently placeholder — wire up a service like Formspree or Google Forms, see `data-placeholder-form` in [js/main.js](js/main.js))
+- Contact/volunteer form backend. For now the forms open the visitor's email app (`data-mailto-form` in [js/main.js](js/main.js)): everything goes to board@wheatrobotics.org, except "Mentor / Coach a team" on the volunteer form, which goes to danwasserman@wheatrobotics.org
 - More photos: the homepage hero and gallery use 2024-25 build season and 2025-26 Mount Olive shots from the team's Robotics Photos Drive folder; there are no banquet or parents-night photos there yet
