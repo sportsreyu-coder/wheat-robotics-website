@@ -48,4 +48,4 @@ website (wheatrobotics.org) has expired and is now a parked domain:
 - Full board roster beyond the current president (Anuj Shah) and Bo Li (board member)
 - Exact meeting days/times and sponsorship dollar tiers
 - Contact/volunteer form backend (currently placeholder — wire up a service like Formspree or Google Forms, see `data-placeholder-form` in [js/main.js](js/main.js))
-- Real photos (the homepage still has a placeholder photo slot)
+- More photos: the homepage hero and gallery use 2024-25 build season and 2025-26 Mount Olive shots from the team's Robotics Photos Drive folder; there are no banquet or parents-night photos there yet

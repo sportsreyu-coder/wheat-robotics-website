@@ -18,6 +18,26 @@ document.addEventListener("DOMContentLoaded", function () {
     el.textContent = new Date().getFullYear();
   });
 
+  // "Other" choice: show a text box (and require it) when a select's
+  // "Other" option is picked. The select names the wrapper to toggle.
+  var otherSelects = document.querySelectorAll("select[data-other-toggle]");
+  otherSelects.forEach(function (select) {
+    var wrap = document.getElementById(select.getAttribute("data-other-toggle"));
+    if (!wrap) return;
+    var input = wrap.querySelector("input, textarea");
+    function sync(focus) {
+      var isOther = select.value === "Other";
+      wrap.hidden = !isOther;
+      if (input) {
+        input.required = isOther;
+        input.disabled = !isOther;
+        if (isOther && focus) input.focus();
+      }
+    }
+    select.addEventListener("change", function () { sync(true); });
+    sync(false);
+  });
+
   // Placeholder form handling: prevent real submission until a backend/
   // form service (e.g. Formspree, Google Forms) is wired up.
   var placeholderForms = document.querySelectorAll("form[data-placeholder-form]");
