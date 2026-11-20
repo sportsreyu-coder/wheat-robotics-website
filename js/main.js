@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
           form.reset();
           showStatus("Message sent! Thanks for reaching out — we'll get back to you soon.", "success");
         })
-        .catch(function () {
+        .catch(function (err) {
+          if (window.console) console.error("Contact form error:", err && err.message);
           showStatus("Sorry, your message couldn't be sent. Please try again in a moment, or email us at board@wheatrobotics.org.", "error");
         })
         .then(function () {
