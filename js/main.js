@@ -38,6 +38,55 @@ document.addEventListener("DOMContentLoaded", function () {
     sync(false);
   });
 
+  // Hero photo slideshow: native horizontal scroll with snap points, so
+  // touch swipe and trackpads work; buttons, dots and arrow keys move it too.
+  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+    var track = carousel.querySelector(".carousel-track");
+    var slides = track ? track.children : [];
+    var dotsWrap = carousel.querySelector(".carousel-dots");
+    if (!track || slides.length < 2) return;
+    var dots = [];
+
+    function current() {
+      return Math.round(track.scrollLeft / track.clientWidth);
+    }
+    function go(i) {
+      var n = slides.length;
+      i = (i + n) % n;
+      track.scrollTo({ left: i * track.clientWidth });
+    }
+    function sync() {
+      var i = current();
+      dots.forEach(function (d, k) {
+        d.setAttribute("aria-current", k === i ? "true" : "false");
+      });
+    }
+
+    Array.prototype.forEach.call(slides, function (slide, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Show photo " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    });
+
+    carousel.querySelector(".carousel-prev").addEventListener("click", function () { go(current() - 1); });
+    carousel.querySelector(".carousel-next").addEventListener("click", function () { go(current() + 1); });
+    carousel.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+    });
+
+    var raf;
+    track.addEventListener("scroll", function () {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(sync);
+    }, { passive: true });
+    window.addEventListener("resize", function () { go(current()); });
+    sync();
+  });
+
   // Web3Forms: the contact form posts straight to Web3Forms, which emails
   // the message to the inbox tied to the access key in the form. Only that
   // public key lives in the page; no passwords or SMTP details.
