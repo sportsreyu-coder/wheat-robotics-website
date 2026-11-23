@@ -168,8 +168,9 @@ section{padding:104px 0}
 .person-card{padding:0 0 24px;overflow:hidden}
 .person-card>*:not(.person-avatar){margin-left:24px;margin-right:24px}
 .person-avatar{aspect-ratio:5/4;margin:0 0 20px;background:repeating-linear-gradient(135deg,var(--sand-100) 0 12px,var(--cream) 12px 24px);border-bottom:1.5px solid var(--brown);display:flex;align-items:center;justify-content:center;color:var(--brown);font-family:var(--font-head);font-size:1.6rem;font-weight:800}
-.person-card h3{font-size:1.2rem;margin-bottom:.15em}
-.person-role{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brown);background:var(--gold-soft);padding:3px 9px;border-radius:4px;margin-bottom:.8em}
+.person-avatar img{width:136px;height:136px;border-radius:50%;object-fit:cover;border:3px solid var(--brown);box-shadow:var(--shadow-soft);background:var(--paper)}
+.person-card h3{font-size:1.2rem;margin-bottom:.5em}
+.person-role{font-weight:500;color:var(--ink-secondary)}
 
 /* Timeline: vertical rail with diamond nodes */
 .timeline{list-style:none;margin:0;padding:0 0 0 36px;display:grid;gap:28px;position:relative;max-width:760px}
